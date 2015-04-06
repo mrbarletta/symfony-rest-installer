@@ -23,6 +23,7 @@ class symfonyRestInstaller
     {
 
         //Automatic Registration is a more complex issue,
+        error_log("configureRequiredPackages");
         echo "## Installation of required packages is finished\n";
         echo "##You have to manually change the app/AppKernel.php";
         echo "##You have to manually change the app/AppKernel.php";
