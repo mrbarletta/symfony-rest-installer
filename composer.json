@@ -16,14 +16,5 @@
         "lexik/jwt-authentication-bundle": "1.0.5",
         "friendsofsymfony/rest-bundle": "~1.4",
         "hwi/oauth-bundle": "0.4.*@dev"
-    },
-    "scripts": {
-        "post-dependencies-solving": "LioniX\\symfonyRestInstaller::configureRequiredPackages"
-    },
-    "autoload": {
-        "psr-4": {
-            "LioniX\\": "src"
-        }
     }
-
 }
