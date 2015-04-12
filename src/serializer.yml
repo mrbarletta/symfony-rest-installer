@@ -1,0 +1,8 @@
+# JMS Serializer Configuration
+jms_serializer:
+    metadata:
+        directories:
+            FOSUserBundle:
+                namespace_prefix: "FOS\\UserBundle"
+                path: "%kernel.root_dir%/Resources/FOSUserBundle/serializer"
+        auto_detection: true

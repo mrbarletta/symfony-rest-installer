@@ -1,0 +1,19 @@
+#app/Resources/FOSUserBundle/serializer/Model.User.yml
+FOS\UserBundle\Model\User:
+    exclusion_policy: ALL
+    properties:
+        id:
+            expose: true
+            groups: [ default, list, admin, user ]
+        email:
+            expose: true
+            groups: [  admin, user ]
+        username:
+            expose: true
+            groups: [  admin, user ]
+        enabled:
+            expose: true
+            groups: [ default, list, admin, user ]
+        locked:
+            expose: true
+            groups: [ default, list, admin, user ]

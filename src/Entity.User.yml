@@ -1,0 +1,19 @@
+# Mode.User.yml  Has the rest of the BASE USER fields - so takes precedence -
+<<NAMESPACEPREFIX>>\Entity\User:
+    exclusion_policy: ALL
+    properties:
+        name:
+            expose: true
+            groups: [ default, list, admin, user ]
+        lastname:
+            expose: true
+            groups: [ default, list , admin, user]
+        registration_date:
+            expose: true
+            groups: [ default, list , admin, user]
+        photo:
+            expose: true
+            groups: [ default, list, admin, user]
+        facebook_id:
+            expose: true
+            groups: [ default, list, admin, user]

@@ -1,0 +1,7 @@
+api_v1_users:
+    type:     rest
+    resource: <<NAMESPACEPREFIX>>\Controller\Rest\v1\UserController
+    name_prefix:  api_v1_
+api_getToken:
+    path:     /getToken
+    defaults: { _controller: <<FULLBUNDLENAME>>:Default:getToken }

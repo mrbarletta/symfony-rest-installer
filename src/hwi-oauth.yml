@@ -1,0 +1,34 @@
+hwi_oauth:
+    # name of the firewall in which this bundle is active, this setting MUST be set
+    firewall_name: main
+    target_path_parameter:          _target_path
+    # an optional setting to configure a query string parameter which can be used to redirect
+    # the user after authentication, e.g. /connect/facebook?_destination=/my/destination will
+    # redirect the user to /my/destination after facebook authenticates them.  If this is not
+    # set then the user will be redirected to the original resource that they requested, or
+    # the base address if no resource was requested.  This is similar to the behaviour of
+    # [target_path_parameter for form login](http://symfony.com/doc/2.0/cookbook/security/form_login.html).
+    # target_path_parameter: _destination
+
+    # an optional setting to use the HTTP REFERER header to be used in case no
+    # previous URL was stored in the session (i.e. no resource was requested).
+    # This is similar to the behaviour of
+    # [using the referring URL for form login](http://symfony.com/doc/2.0/cookbook/security/form_login.html#using-the-referring-url).
+    # use_referer: true
+
+    # here you will add one (or more) configurations for resource owners
+    # and other settings you want to adjust in this bundle, just checkout the list below!
+    resource_owners:
+        facebook:
+            type:                facebook
+            client_id:           <<CLIENTID>>
+            client_secret:     <<CLIENTSECRET>>
+            scope:         "email,public_profile,user_friends"
+            infos_url:     "https://graph.facebook.com/me?fields=name,email,picture.type(square)"
+            paths:
+                email:          email
+                realname:        realname
+                profilepicture: picture.data.url
+services:
+    hwi_oauth.user.provider.entity:
+        class: HWI\Bundle\OAuthBundle\Security\Core\User\OAuthUserProvider

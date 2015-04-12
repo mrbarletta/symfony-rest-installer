@@ -1,0 +1,77 @@
+<<NAMESPACEPREFIX>>\Entity\User:
+    type:  entity
+    table: fos_user
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        facebook_id:
+            type: string
+            length: 250
+            nullable: true
+        facebook_access_token:
+            type: string
+            length: 250
+            nullable: true
+        name:
+            type: string
+            length: 100
+            nullable: true
+        lastname:
+            type: string
+            length: 100
+            nullable: true
+        photo:
+            type: string
+            length: 255
+            nullable: true
+        registration_date:
+            type: datetime
+            nullable: true
+            comment: ''
+            column: registration_date
+        fullname:
+            type: string
+            length: 200
+            nullable: true
+        country:
+            type: string
+            length: 2
+            nullable: true
+        state:
+            type: string
+            length: 100
+            nullable: true
+        city:
+            type: string
+            length: 100
+            nullable: true
+        billingAddress1:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            comment: ''
+            column: billing_address_1
+        billingAddress2:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            comment: ''
+            column: billing_address_2
+        zipcode:
+            type: integer
+            nullable: true
+            unsigned: true
+            length: 5
+            comment: 'The basic format consists of five decimal numerical digits.'
+        zipcodeext:
+            type: integer
+            nullable: true
+            unsigned: true
+            length: 4
+            comment: 'An extended ZIP+4 code, introduced in 1983, includes four more digits that determine a more specific location within a given ZIP code.'
+            column: zipcode_ext
