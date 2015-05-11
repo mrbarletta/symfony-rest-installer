@@ -11,6 +11,15 @@ There are some instructions to get you all setup.
 * JWT tokens for authentication
 * FosRest for Rest support + JMS serialization of data
 
+## Requirements - Read before install!
+
+* LAMP working - Apache, MySQL and PHP should be working on your setup already 
+* Get your facebook app ID and Secret developer.facebook.com (this is needed for Facebook Login)
+* Make sure you have openssl installed - This command should work - openssl genrsa -out /tmp/test -aes256 4096
+* Add "minimum-stability": "dev" to the composer.json of your symfony root dir.
+* Get a tool to test the REST API - I use postman (https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en)
+
+
 ## ;TL;DR
 
         symfony new symrest
@@ -37,14 +46,6 @@ Navigate to localhost/symrest/web/register and **create** a new account, user th
             '{"username":"USER@gmail.com","password":"PASS"}' --compressed
 
 Check the ubuntu details to have a virtualhost setup easily with a symrest.vcap.me pretty name ;)
-
-## Requirements - Read before install!
-
-* LAMP working - Apache, MySQL and PHP should be working on your setup already 
-* Get your facebook app ID and Secret developer.facebook.com
-* Make sure you have openssl installed - This command should work - openssl genrsa -out /tmp/test -aes256 4096
-* Add "minimum-stability": "dev" to the composer.json of your symfony root dir.
-* Get a tool to test the REST API - I use postman (https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en)
 
 
 ## Installation
