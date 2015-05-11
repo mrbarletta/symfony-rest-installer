@@ -14,27 +14,31 @@ There are some instructions to get you all setup.
 ## Requirements - Read before install!
 
 * LAMP working - Apache, MySQL and PHP should be working on your setup already 
-* Get your facebook app ID and Secret https://developers.facebook.com/ (this is needed for Facebook Login, if you don't have an App created, follow the steps and it will provide you with those parameters when done)
-* Make sure you have openssl installed - This command should work - openssl genrsa -out /tmp/test -aes256 4096
-* Add "minimum-stability": "dev" to the composer.json of your symfony root dir.
-* Get a tool to test the REST API - I use postman (https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en)
-
+* Add to the composer.json of your symfony root dir the following line:
+  * `"minimum-stability": "dev",`
+* Make sure you have openssl installed, this command should work:
+    * `openssl genrsa -out /tmp/test -aes256 4096`
+* Get your facebook app ID and Secret, this is needed to get Facebook Login working
+  * https://developers.facebook.com/
+  * If you don't have an App created, follow the steps and it will provide you with those parameters when done
+* Get a tool to test the REST API [POSTMAN](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en) recomended
 
 ## ;TL;DR
 
         symfony new symrest
         cd symrest
-Edit your composer.json file and add the line    
-     
-        "minimum-stability": "dev"
+Edit your composer.json file and add the line
+
+        "minimum-stability": "dev",
+
 Continue:
-        
+
         composer require "lionix/symfony-rest-installer":"@dev"
         php vendor/lionix/symfony-rest-installer/src/configurePackages.php
 
 The package will give you additional steps to follow, follow them. 
 The only requisite is to have 
-        
+
         mysql -uUSER -pPASSWORD -e "create database symrest"
         mysql -uUSER -pPASSWORD -e "GRANT ALL ON symrest.* TO user@localhost IDENTIFIED BY password"
         php app/console doctrine:schema:update --force
@@ -70,7 +74,7 @@ Install symfony First!
 ## Usage
 - Surf to the /register URL of YourAppName (e.g.  localhost/symrest/web/register if you didn't use virtual hosts)
 - Register into your site - remember user and pass
-- Test the registration with CURL or POSTMAN - if you use curl do this on the console:
+- Test the registration with CURL or [POSTMAN](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en) - if you use curl do this on the console:
 
         curl 'http://localhost/web/app_dev.php/api/v1/getToken' -H 'Content-Type: application/json' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'DNT: 1' --data-binary \
         '{"username":"USER@gmail.com","password":"PASS"}' --compressed
@@ -85,7 +89,7 @@ The response should be something like this:
         AKrsApGEVyBl0UFRl7f9ZwO9ICETtV1dOEQ1SoQpuLs0jQaAqScZ6tmnlKBRf84xdTmSG1DW2riyclbUzhLFj9Fr0ujQCSaejP-ldpvsgFPw1YVkLovHhS7\
         8q4HE6ZFjO7uv--bRRkB8iyCgGBjj-Vhh82_Pzm3dpWx6Lxqbg46tyqnJpnmk8JSicycrSXXzicmSdn6iWVfNhmMjxPBZPeimYPd7Z-Ckp2TewX6NvIWFg"}
 
-Thats your JWT token that you will use on your app or in POSTMAN to go around.
+Thats your JWT token that you will use on your app or in [POSTMAN](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en) to go around.
 
 
 ## Configuration with Virtual Host for a fancy name
