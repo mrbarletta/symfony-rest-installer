@@ -14,6 +14,8 @@ There are some instructions to get you all setup.
 ## Requirements - Read before install!
 
 * LAMP working - Apache, MySQL and PHP should be working on your setup already 
+* Install composer globally
+  * http://symfony.com/doc/current/cookbook/composer.html
 * Add to the composer.json of your symfony root dir the following line:
   * `"minimum-stability": "dev",`
 * Make sure you have openssl installed, this command should work:
