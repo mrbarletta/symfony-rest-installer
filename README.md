@@ -14,7 +14,7 @@ There are some instructions to get you all setup.
 ## Requirements - Read before install!
 
 * LAMP working - Apache, MySQL and PHP should be working on your setup already 
-* Get your facebook app ID and Secret developer.facebook.com (this is needed for Facebook Login)
+* Get your facebook app ID and Secret https://developers.facebook.com/ (this is needed for Facebook Login, if you don't have an App created, follow the steps and it will provide you with those parameters when done)
 * Make sure you have openssl installed - This command should work - openssl genrsa -out /tmp/test -aes256 4096
 * Add "minimum-stability": "dev" to the composer.json of your symfony root dir.
 * Get a tool to test the REST API - I use postman (https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en)
