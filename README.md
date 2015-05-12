@@ -33,12 +33,30 @@ Edit your composer.json file and add the line
 
         "minimum-stability": "dev",
 
-Continue:
+With composer install this package:
 
         composer require "lionix/symfony-rest-installer":"@dev"
+
+Package configuration will requiere SSL keys, generate them:
+
+        mkdir -p app/var/jwt/
+        openssl genrsa -out app/var/jwt/private.pem -aes256 4096 
+        openssl rsa -pubout -in app/var/jwt/private.pem -out app/var/jwt/public.pem 
+        
+_Write down **SSL SECRET** that you use to generate the keys you'll need on next step_
+
+*Tip:* Add this line on your *.gitignore* file to avoid sharing your private keys:
+
+`/app/var/*`
+
+Configure the package with the following command
+        
         php vendor/lionix/symfony-rest-installer/src/configurePackages.php
 
 The package will give you additional steps to follow, follow them. 
+
+to be continue...
+
 The only requisite is to have 
 
         mysql -uUSER -pPASSWORD -e "create database symrest"
