@@ -23,7 +23,7 @@ There are some instructions to get you all setup.
 * Get your facebook app ID and Secret, this is needed to get Facebook Login working
   * https://developers.facebook.com/
   * If you don't have an App created, follow the steps and it will provide you with those parameters when done
-* Get a tool to test the REST API [POSTMAN](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en) recomended
+* Get a tool to test the REST API [POSTMAN](https://www.getpostman.com/) recomended
 
 ## ;TL;DR
 
@@ -76,7 +76,7 @@ Install symfony First!
 ## Usage
 - Surf to the /register URL of YourAppName (e.g.  localhost/symrest/web/register if you didn't use virtual hosts)
 - Register into your site - remember user and pass
-- Test the registration with CURL or [POSTMAN](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en) - if you use curl do this on the console:
+- Test the registration with CURL or [POSTMAN](https://www.getpostman.com/) - if you use curl do this on the console:
 
         curl 'http://localhost/web/app_dev.php/api/v1/getToken' -H 'Content-Type: application/json' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'DNT: 1' --data-binary \
         '{"username":"USER@gmail.com","password":"PASS"}' --compressed
@@ -91,7 +91,7 @@ The response should be something like this:
         AKrsApGEVyBl0UFRl7f9ZwO9ICETtV1dOEQ1SoQpuLs0jQaAqScZ6tmnlKBRf84xdTmSG1DW2riyclbUzhLFj9Fr0ujQCSaejP-ldpvsgFPw1YVkLovHhS7\
         8q4HE6ZFjO7uv--bRRkB8iyCgGBjj-Vhh82_Pzm3dpWx6Lxqbg46tyqnJpnmk8JSicycrSXXzicmSdn6iWVfNhmMjxPBZPeimYPd7Z-Ckp2TewX6NvIWFg"}
 
-Thats your JWT token that you will use on your app or in [POSTMAN](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en) to go around.
+Thats your JWT token that you will use on your app or in [POSTMAN](https://www.getpostman.com/) to go around.
 
 
 ## Configuration with Virtual Host for a fancy name
