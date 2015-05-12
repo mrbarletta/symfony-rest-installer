@@ -20,8 +20,8 @@ function configurePackage()
     if ($continue == 'yes') {
         $vendor = ucwords(strtolower(promptUser('Vendor name', 'Acme')));
         $bundle = ucwords(strtolower(promptUser('Bundle Name without the Bundle suffix', 'Checkout')));
-        $facebookClientId = promptUser('Facebook Client ID', '');
-        $facebookClientSecret = promptUser('Facebook Client Secret', '');
+        $facebookClientId = promptUser('Facebook App ID', '');
+        $facebookClientSecret = promptUser('Facebook App Secret', '');
         $sslSecret = promptUser('SSL Secret', '');
         echo $vendor . $bundle . "Bundle";
         $vendorBundlename = $vendor . $bundle;
