@@ -23,7 +23,7 @@ There are some instructions to get you all setup.
 * Get your facebook app ID and Secret, this is needed to get Facebook Login working
   * https://developers.facebook.com/
   * If you don't have an App created, follow the steps and it will provide you with those parameters when done
-* Get a tool to test the REST API [POSTMAN](https://www.getpostman.com/) recomended
+* Get a tool to test the REST API: [POSTMAN](https://www.getpostman.com/) recomended
 
 ## ;TL;DR
 
@@ -53,23 +53,47 @@ Configure the package with the following command
         
         php vendor/lionix/symfony-rest-installer/src/configurePackages.php
 
-The package will give you additional steps to follow, follow them. 
+**configurePackages.php** will give you additional manual steps to follow, complete them.
 
-to be continue...
+Sync the database with the modules we just added it:
 
-The only requisite is to have 
+* For a brand new installation, things can be *__"forced"__* a little:
 
         mysql -uUSER -pPASSWORD -e "create database symrest"
         mysql -uUSER -pPASSWORD -e "GRANT ALL ON symrest.* TO user@localhost IDENTIFIED BY password"
         php app/console doctrine:schema:update --force
 
-Navigate to localhost/symrest/web/register and **create** a new account, user that user/pass to test this setup
+* When things has been running for a while, we have to sync the database with a more cautious approach:
+
+        php app/console doctrine:schema:update --dump-sql
+
+That command display changes needed on the database to work with the new modules, something like this:
+
+        ALTER TABLE fos_user ADD facebook_id VARCHAR(250) DEFAULT NULL, ADD facebook_access_token VARCHAR(250) DEFAULT NULL;
+
+*Tip:* Just creating the new tables and columns we're good to go.
+
+Navigate to localhost/symrest/web/register and **create** a new account.
+
+With the *user/pass* from last step, run this test:
 
         curl 'http://localhost/web/app_dev.php/api/v1/getToken' -H 'Content-Type: application/json' \
             -H 'Accept: */*' -H 'Connection: keep-alive' -H 'DNT: 1' --data-binary \
             '{"username":"USER@gmail.com","password":"PASS"}' --compressed
 
-Check the ubuntu details to have a virtualhost setup easily with a symrest.vcap.me pretty name ;)
+If everything went right the response should be something like this:
+
+        {"token":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXUyJ9.eyJleHAiOjE0Mjg4OTE5ODEsInVzZXJuYW1lIjoibXJiYXJsZXR0YUBnbWFpbC5jb20iLC\
+        JpYXQiOiIxNDI4ODA1NTgxIn0.bng6c1bSz9k-2EN-aRRBttBSwM2v2KI8tXAOpFcPhsXYkvJdRFJLTec0x_6LKQrW7idQ-Cj4rbO0rSPdH9giDGprav8\
+        NtbmFtfqhnvDDxBSfJvzEINmn_ckoEuD5tRPklW1o7p2FEX-GlEE8g9b0FpVe_1sUo3MP0H3lsEh23tvAgt_xp8B3fcw89OQrQfpbCyZdRtnsLIutzyLzk\
+        make2iGdWPcODjPe-jIucpqrKD1hRrJBx6IdssJlDMZ1FEN_irPFGcZttq2NE9wkJJaPAd4y-3H8uc8x75RdI9Dw5LLhzS7n1Tvi-wqvbVTqXWxgJg4_Tm\
+        xHOr4MBpCnlPJgtmeBnkYnEhICSWKFalHsc11Lycf7-z6thBhMdIgB9wCRugcCVbsy6W5vkM41mjVo1MugSXdlzDqCZD9cqnT6-7cKr6_3M3t_AreLDvVgl\
+        AKrsApGEVyBl0UFRl7f9ZwO9ICETtV1dOEQ1SoQpuLs0jQaAqScZ6tmnlKBRf84xdTmSG1DW2riyclbUzhLFj9Fr0ujQCSaejP-ldpvsgFPw1YVkLovHhS7\
+        8q4HE6ZFjO7uv--bRRkB8iyCgGBjj-Vhh82_Pzm3dpWx6Lxqbg46tyqnJpnmk8JSicycrSXXzicmSdn6iWVfNhmMjxPBZPeimYPd7Z-Ckp2TewX6NvIWFg"}
+
+Thats your JWT token that you will use on your app or in [POSTMAN](https://www.getpostman.com/) to go around.
+
+If you're running *Ubuntu* check the details to have a virtualhost setup easily with a symrest.vcap.me pretty name ;)
 
 
 ## Installation
