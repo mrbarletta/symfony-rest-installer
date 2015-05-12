@@ -90,29 +90,32 @@ function configurePackage()
         echo "\n\n  Add this lines to your: app/config/config.yml \n ";
         $configlines = <<<CONFIG
 
-- { resource: fos-bundles.yml }
-- { resource: serializer.yml }
-- { resource: jwt-authentication.yml }
-- { resource: hwi-oauth.yml }
+imports:
+    # symfony-rest-installer
+    - { resource: fos-bundles.yml }
+    - { resource: serializer.yml }
+    - { resource: jwt-authentication.yml }
+    - { resource: hwi-oauth.yml }
+    # symfony-rest-installer
 
 CONFIG;
         echo $configlines;
         echo "\n\n  Add this lines to your app/AppKernel.php \n ";
         $kernellines = <<<KERNEL
-
-    new HWI\\Bundle\\OAuthBundle\\HWIOAuthBundle(),
-    new Gfreeau\\Bundle\\GetJWTBundle\\GfreeauGetJWTBundle(),
-    new FOS\\UserBundle\\FOSUserBundle(),
-    new FOS\\RestBundle\\FOSRestBundle(),
-    new Lexik\\Bundle\\JWTAuthenticationBundle\\LexikJWTAuthenticationBundle(),
-    new JMS\\SerializerBundle\\JMSSerializerBundle(),
-
+            // symfony-rest-installer
+            new HWI\\Bundle\\OAuthBundle\\HWIOAuthBundle(),
+            new Gfreeau\\Bundle\\GetJWTBundle\\GfreeauGetJWTBundle(),
+            new FOS\\UserBundle\\FOSUserBundle(),
+            new FOS\\RestBundle\\FOSRestBundle(),
+            new Lexik\\Bundle\\JWTAuthenticationBundle\\LexikJWTAuthenticationBundle(),
+            new JMS\\SerializerBundle\\JMSSerializerBundle(),
+            // symfony-rest-installer
 KERNEL;
         $kernellines .= "    new " . $namespacePrefix . "\\" . $fullBundleName . "(),";
         echo $kernellines;
         echo "\n\n  Add this lines to your EXISTING app/config/routing.yml \n ";
         $routinglines = <<<ROUTING
-
+# symfony-rest-installer
 api_v1:
     type: rest
 
@@ -133,73 +136,75 @@ facebook_login:
     pattern: /login/check-facebook
 google_login:
     pattern: /login/check-google
+# symfony-rest-installer
 ROUTING;
         echo $routinglines;
 
 
         echo "\n\n  Add this lines to your EXISTING app/config/security.yml \n ";
         $securitylines = <<<SECURITY
+    firewalls:
+        # symfony-rest-installer
+        gettoken:
+            pattern:  ^/api/v1/getToken$
+            stateless: true
+            provider:                 fos_userbundle
+            gfreeau_get_jwt:
+                # this is the default config
+                username_parameter: username
+                password_parameter: password
+                post_only: true
+                success_handler: lexik_jwt_authentication.handler.authentication_success
+                failure_handler: lexik_jwt_authentication.handler.authentication_failure
+        api:
+            pattern:   ^/api
+            methods: [POST, PUT, DELETE, GET]
+            stateless: true
+            lexik_jwt:
+                authorization_header:
+                    enabled: true
+                    prefix:  Bearer
+                query_parameter:
+                    enabled: true
+                    name:    bearer
+                throw_exceptions: false
+                create_entry_point: true
 
-gettoken:
-     pattern:  ^/api/v1/getToken$
-     stateless: true
-     provider:                 fos_userbundle
-     gfreeau_get_jwt:
-         # this is the default config
-         username_parameter: username
-         password_parameter: password
-         post_only: true
-         success_handler: lexik_jwt_authentication.handler.authentication_success
-         failure_handler: lexik_jwt_authentication.handler.authentication_failure
-api:
-     pattern:   ^/api
-     methods: [POST, PUT, DELETE, GET]
-     stateless: true
-     lexik_jwt:
-          authorization_header:
-               enabled: true
-               prefix:  Bearer
-          query_parameter:
-               enabled: true
-               name:    bearer
-          throw_exceptions: false
-          create_entry_point: true
-
-main:
-    pattern: ^/
-    form_login:
-        provider: fos_userbundle
-        csrf_provider: form.csrf_provider
-    logout:       true
-    anonymous:    true
-    oauth:
-        resource_owners:
-            facebook:           "/login/check-facebook"
-        login_path:        /login
-        failure_path:      /loginFailure
-        default_target_path: /
-#                success_handler:    loginredirect_security_handler
-#        failure_handler:    loginredirect_security_handler
-        oauth_user_provider:
-            #this is my custom user provider, created from FOSUBUserProvider - will manage the
-            #automatic user registration on your site, with data from the provider (facebook. google, etc.)
-            service: custom_user_provider
-#                    service: hwi_oauth.user.provider.entity
-
-
+        main:
+            pattern: ^/
+            form_login:
+                provider: fos_userbundle
+                csrf_provider: form.csrf_provider
+            logout:       true
+            anonymous:    true
+            oauth:
+                resource_owners:
+                    facebook:           "/login/check-facebook"
+                login_path:        /login
+                failure_path:      /loginFailure
+                default_target_path: /
+        #                success_handler:    loginredirect_security_handler
+        #        failure_handler:    loginredirect_security_handler
+                oauth_user_provider:
+                    #this is my custom user provider, created from FOSUBUserProvider - will manage the
+                    #automatic user registration on your site, with data from the provider (facebook. google, etc.)
+                    service: custom_user_provider
+        #                    service: hwi_oauth.user.provider.entity
+        # symfony-rest-installer
 
 #########################################################################
 ########################## DONT COPY PASTE ##############################
 ########################## THIS PART, READ ##############################
 ####################### AND ADD WHATS MISSING  ##########################
 #######################  IN THE ORIGINAL FILE  ##########################
+security:
+    # symfony-rest-installer
     encoders:
         FOS\UserBundle\Model\UserInterface: sha512
-security:
     providers:
         fos_userbundle:
             id: fos_user.user_provider.username
-
+    # symfony-rest-installer
 SECURITY;
 
         echo $securitylines;
