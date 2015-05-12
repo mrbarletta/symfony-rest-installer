@@ -1,9 +1,8 @@
 <?php
 
-namespace <<
-NAMESPACEPREFIX >> \Controller\Rest\v1;
+namespace **NAMESPACEPREFIX**\Controller\Rest\v1;
 
-use <<NAMESPACEPREFIX >> \Entity\User;
+use **NAMESPACEPREFIX**\Entity\User;
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\Controller\Annotations as FOSRest;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -29,7 +28,7 @@ use FOS\RestBundle\Controller\FOSRestController;
 // Controller name itself is not used in routes auto-generation process and can be any name you like.
 class UserController extends FOSRestController
 {
-    private $repo_name = '<<FULLBUNDLENAME>>:User';
+    private $repo_name = '**FULLBUNDLENAME**:User';
 
     private function getRepo()
     {

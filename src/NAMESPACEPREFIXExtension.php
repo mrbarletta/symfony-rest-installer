@@ -1,7 +1,6 @@
 <?php
 
-namespace <<
-NAMESPACEPREFIX >> \DependencyInjection;
+namespace **NAMESPACEPREFIX**\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
@@ -13,7 +12,7 @@ use Symfony\Component\DependencyInjection\Loader;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class <<VENDORBUNDLE >> Extension extends Extension
+class **VENDORBUNDLE** Extension extends Extension
 {
     /**
      * {@inheritdoc}

@@ -1,7 +1,6 @@
 <?php
 
-namespace <<
-NAMESPACEPREFIX >> \Controller;
+namespace **NAMESPACEPREFIX**\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;

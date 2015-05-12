@@ -62,28 +62,28 @@ function configurePackage()
         copy(__DIR__ . "/Model.User.yml", $fosSerializerDir . "/Model.User.yml");
 
         //Variable dependent file get parsed and then copied
-        replaceInFile('<<SSLPASS>>', $sslSecret, __DIR__ . "/jwt-authentication.yml", $symfonyRootDir . "/app/config/jwt-authentication.yml");
-        replaceInFile('<<CLIENTID>>', $facebookClientId, __DIR__ . "/hwi-oauth.yml", $symfonyRootDir . "/app/config/hwi-oauth.yml");
-        replaceInFile('<<CLIENTSECRET>>', $facebookClientSecret, $symfonyRootDir . "/app/config/hwi-oauth.yml", $symfonyRootDir . "/app/config/hwi-oauth.yml");
-        replaceInFile('<<FULLBUNDLENAME>>', $fullBundleName, __DIR__ . "/serializer.yml", $symfonyRootDir . "/app/config/serializer.yml");
-        replaceInFile('<<NAMESPACEPREFIX>>', $namespacePrefix, $symfonyRootDir . "/app/config/serializer.yml", $symfonyRootDir . "/app/config/serializer.yml");
-        replaceInFile('<<NAMESPACEPREFIX>>', $namespacePrefix, __DIR__ . "/fos-bundles.yml", $symfonyRootDir . "/app/config/fos-bundles.yml");
-        replaceInFile('<<NAMESPACEPREFIX>>', $namespacePrefix, __DIR__ . "/Entity.User.yml", $configSerializerDir . "/Entity.User.yml");
-        replaceInFile('<<NAMESPACEPREFIX>>', $namespacePrefix, __DIR__ . "/services.yml", $configDir . "/services.yml");
-        replaceInFile('<<NAMESPACEPREFIX>>', $namespacePrefix, __DIR__ . "/User.orm.yml", $configDoctrineDir . "/User.orm.yml");
-        replaceInFile('<<NAMESPACEPREFIX>>', $namespacePrefix, __DIR__ . "/User.php", $entityDir . "/User.php");
-        replaceInFile('<<NAMESPACEPREFIX>>', $namespacePrefix, __DIR__ . "/FOSUBUserProvider.php", $fosUserBundleDir . "/FOSUBUserProvider.php");
-        replaceInFile('<<NAMESPACEPREFIX>>', $namespacePrefix, __DIR__ . "/DefaultController.php", $controllerDir . "/DefaultController.php");
-        replaceInFile('<<NAMESPACEPREFIX>>', $namespacePrefix, __DIR__ . "/UserController.php", $controllerRestDir . "/UserController.php");
-        replaceInFile('<<VENDORBUNDLE>>', $vendorBundlename, __DIR__ . "/NAMESPACEPREFIXExtension.php", $dependencyDir . $vendorBundlename . "Extension.php");
-        replaceInFile('<<NAMESPACEPREFIX>>', $namespacePrefix, $dependencyDir . $vendorBundlename . "Extension.php", $dependencyDir . $vendorBundlename . "Extension.php");
-        replaceInFile('<<VENDOR_BUNDLE>>', $vendor_Bundle, __DIR__ . "/Configuration.php", $dependencyDir . "/Configuration.php");
-        replaceInFile('<<NAMESPACEPREFIX>>', $namespacePrefix, $dependencyDir . "/Configuration.php", $dependencyDir . "/Configuration.php");
-        replaceInFile('<<NAMESPACEPREFIX>>', $namespacePrefix, __DIR__ . "/api.v1.routing.yml", $configDir . "/api.v1.routing.yml");
-        replaceInFile('<<FULLBUNDLENAME>>', $fullBundleName, $configDir . "/api.v1.routing.yml", $configDir . "/api.v1.routing.yml");
-        replaceInFile('<<FULLBUNDLENAME>>', $fullBundleName, $controllerRestDir . "/UserController.php", $controllerRestDir . "/UserController.php");
-        replaceInFile('<<NAMESPACEPREFIX>>', $namespacePrefix, __DIR__ . "/NAMESPACEPREFIXBundle.php", $baseBundleDir . "/" . $fullBundleName . ".php");
-        replaceInFile('<<FULLBUNDLENAME>>', $fullBundleName, $baseBundleDir . "/" . $fullBundleName . ".php", $baseBundleDir . "/" . $fullBundleName . ".php");
+        replaceInFile('**SSLPASS**', $sslSecret, __DIR__ . "/jwt-authentication.yml", $symfonyRootDir . "/app/config/jwt-authentication.yml");
+        replaceInFile('**CLIENTID**', $facebookClientId, __DIR__ . "/hwi-oauth.yml", $symfonyRootDir . "/app/config/hwi-oauth.yml");
+        replaceInFile('**CLIENTSECRET**', $facebookClientSecret, $symfonyRootDir . "/app/config/hwi-oauth.yml", $symfonyRootDir . "/app/config/hwi-oauth.yml");
+        replaceInFile('**FULLBUNDLENAME**', $fullBundleName, __DIR__ . "/serializer.yml", $symfonyRootDir . "/app/config/serializer.yml");
+        replaceInFile('**NAMESPACEPREFIX**', $namespacePrefix, $symfonyRootDir . "/app/config/serializer.yml", $symfonyRootDir . "/app/config/serializer.yml");
+        replaceInFile('**NAMESPACEPREFIX**', $namespacePrefix, __DIR__ . "/fos-bundles.yml", $symfonyRootDir . "/app/config/fos-bundles.yml");
+        replaceInFile('**NAMESPACEPREFIX**', $namespacePrefix, __DIR__ . "/Entity.User.yml", $configSerializerDir . "/Entity.User.yml");
+        replaceInFile('**NAMESPACEPREFIX**', $namespacePrefix, __DIR__ . "/services.yml", $configDir . "/services.yml");
+        replaceInFile('**NAMESPACEPREFIX**', $namespacePrefix, __DIR__ . "/User.orm.yml", $configDoctrineDir . "/User.orm.yml");
+        replaceInFile('**NAMESPACEPREFIX**', $namespacePrefix, __DIR__ . "/User.php", $entityDir . "/User.php");
+        replaceInFile('**NAMESPACEPREFIX**', $namespacePrefix, __DIR__ . "/FOSUBUserProvider.php", $fosUserBundleDir . "/FOSUBUserProvider.php");
+        replaceInFile('**NAMESPACEPREFIX**', $namespacePrefix, __DIR__ . "/DefaultController.php", $controllerDir . "/DefaultController.php");
+        replaceInFile('**NAMESPACEPREFIX**', $namespacePrefix, __DIR__ . "/UserController.php", $controllerRestDir . "/UserController.php");
+        replaceInFile('**VENDORBUNDLE**', $vendorBundlename, __DIR__ . "/NAMESPACEPREFIXExtension.php", $dependencyDir . $vendorBundlename . "Extension.php");
+        replaceInFile('**NAMESPACEPREFIX**', $namespacePrefix, $dependencyDir . $vendorBundlename . "Extension.php", $dependencyDir . $vendorBundlename . "Extension.php");
+        replaceInFile('**VENDOR_BUNDLE**', $vendor_Bundle, __DIR__ . "/Configuration.php", $dependencyDir . "/Configuration.php");
+        replaceInFile('**NAMESPACEPREFIX**', $namespacePrefix, $dependencyDir . "/Configuration.php", $dependencyDir . "/Configuration.php");
+        replaceInFile('**NAMESPACEPREFIX**', $namespacePrefix, __DIR__ . "/api.v1.routing.yml", $configDir . "/api.v1.routing.yml");
+        replaceInFile('**FULLBUNDLENAME**', $fullBundleName, $configDir . "/api.v1.routing.yml", $configDir . "/api.v1.routing.yml");
+        replaceInFile('**FULLBUNDLENAME**', $fullBundleName, $controllerRestDir . "/UserController.php", $controllerRestDir . "/UserController.php");
+        replaceInFile('**NAMESPACEPREFIX**', $namespacePrefix, __DIR__ . "/NAMESPACEPREFIXBundle.php", $baseBundleDir . "/" . $fullBundleName . ".php");
+        replaceInFile('**FULLBUNDLENAME**', $fullBundleName, $baseBundleDir . "/" . $fullBundleName . ".php", $baseBundleDir . "/" . $fullBundleName . ".php");
 
 
         echo "\n\n MANUAL STUFF - there is not an App for that (yet) \n ";

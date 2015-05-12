@@ -1,4 +1,4 @@
-<<NAMESPACEPREFIX>>\Entity\User:
+**NAMESPACEPREFIX**\Entity\User:
     type:  entity
     table: fos_user
     id:

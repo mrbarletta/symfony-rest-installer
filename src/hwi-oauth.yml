@@ -21,8 +21,8 @@ hwi_oauth:
     resource_owners:
         facebook:
             type:                facebook
-            client_id:           <<CLIENTID>>
-            client_secret:     <<CLIENTSECRET>>
+            client_id:           **CLIENTID**
+            client_secret:     **CLIENTSECRET**
             scope:         "email,public_profile,user_friends"
             infos_url:     "https://graph.facebook.com/me?fields=name,email,picture.type(square)"
             paths:

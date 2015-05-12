@@ -1,10 +1,9 @@
 <?php
 
-namespace <<
-NAMESPACEPREFIX >>;
+namespace **NAMESPACEPREFIX**;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class <<FULLBUNDLENAME >> extends Bundle
+class **FULLBUNDLENAME** extends Bundle
 {
 }

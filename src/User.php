@@ -1,8 +1,7 @@
 <?php
 // src/Lionix/PhittleBundle/Entity/User.php
 
-namespace <<
-NAMESPACEPREFIX >> \Entity;
+namespace **NAMESPACEPREFIX**\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;

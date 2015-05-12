@@ -1,5 +1,5 @@
 # Mode.User.yml  Has the rest of the BASE USER fields - so takes precedence -
-<<NAMESPACEPREFIX>>\Entity\User:
+**NAMESPACEPREFIX**\Entity\User:
     exclusion_policy: ALL
     properties:
         name:
