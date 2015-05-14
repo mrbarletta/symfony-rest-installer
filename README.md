@@ -175,3 +175,4 @@ Symfony already has this setup, but will require a AllowOverride all setting in 
 * Use a Symfony command instead of a plain php
 * Make the table configurable - now uses fos_user table, it should be user-defined
 * Add #failure_handler / success_handler support functions
+* Add ping rest api call to the installer
