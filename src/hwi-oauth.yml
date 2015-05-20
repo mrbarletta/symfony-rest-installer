@@ -29,6 +29,12 @@ hwi_oauth:
                 email:          email
                 realname:        realname
                 profilepicture: picture.data.url
+
+        google:
+            type:                google
+            client_id:           **GOOGLECLIENTID**
+            client_secret:       **GOOGLECLIENTSECRET**
+            scope:               "email"
 services:
     hwi_oauth.user.provider.entity:
         class: HWI\Bundle\OAuthBundle\Security\Core\User\OAuthUserProvider

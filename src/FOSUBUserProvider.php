@@ -153,8 +153,8 @@ class FOSUBUserProvider extends BaseClass
         } elseif (is_null($userEmail)) {
             throw new EmailNotFoundException(sprintf('User "%d" Does not provide enough privileges.', $username));
 
-        } elseif ($user_by_email->getFacebookId() == null || $user_by_email->getFacebookId() == "") {
-            $this->logger->info("::LX:: THIS USER has an account with us but not a Facebook Login - Merging ");
+        } elseif ($user_by_email->getFacebookId() == null || $user_by_email->getFacebookId() == "" || $user_by_email->getGoogleId() == null) {
+            $this->logger->info("::LX:: THIS USER has an account with us but not a OAUTH Login - Merging ");
             // Setting this user OAUTH ID (e.g. Facebook ID) to their Account
             $service = $response->getResourceOwner()->getName();
             $setter = 'set' . ucfirst($service);

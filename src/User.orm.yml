@@ -7,6 +7,14 @@
             generator:
                 strategy: AUTO
     fields:
+        google_id:
+            type: string
+            length: 250
+            nullable: true
+        google_access_token:
+            type: string
+            length: 250
+            nullable: true
         facebook_id:
             type: string
             length: 250
