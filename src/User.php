@@ -312,20 +312,20 @@ class User extends BaseUser
     }
 
     /**
-     * Set citi
+     * Set city
      *
-     * @param string $citi
+     * @param string $city
      * @return User
      */
-    public function setCity($citi)
+    public function setCity($city)
     {
-        $this->citi = $citi;
+        $this->city = $city;
 
         return $this;
     }
 
     /**
-     * Get citi
+     * Get city
      *
      * @return string
      */
