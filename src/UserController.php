@@ -147,8 +147,8 @@ class UserController extends FOSRestController
                 $sql .= " state = '{$data->user->state}',";
             }
 
-            if (property_exists($data->user, 'citi')) {
-                $sql .= " citi = '{$data->user->citi}',";
+            if (property_exists($data->user, 'city')) {
+                $sql .= " city = '{$data->user->city}',";
             }
 
             if (property_exists($data->user, 'billingAddress1')) {
