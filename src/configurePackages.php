@@ -66,6 +66,9 @@ function configurePackage()
         replaceInFile('**CLIENTID**', $facebookClientId, __DIR__ . "/hwi-oauth.yml", $symfonyRootDir . "/app/config/hwi-oauth.yml");
         replaceInFile('**CLIENTSECRET**', $facebookClientSecret, $symfonyRootDir . "/app/config/hwi-oauth.yml", $symfonyRootDir . "/app/config/hwi-oauth.yml");
         replaceInFile('**FULLBUNDLENAME**', $fullBundleName, __DIR__ . "/serializer.yml", $symfonyRootDir . "/app/config/serializer.yml");
+        replaceInFile('**NAMESPACEPREFIX**', $namespacePrefix, $symfonyRootDir . "/app/config/serializer.yml" ,$symfonyRootDir . "/app/config/serializer.yml");
+        replaceInFile('**VENDOR**', $vendor, $symfonyRootDir . "/app/config/serializer.yml" ,$symfonyRootDir . "/app/config/serializer.yml");
+        replaceInFile('**BUNDLE**', $bundle, $symfonyRootDir . "/app/config/serializer.yml" ,$symfonyRootDir . "/app/config/serializer.yml");
         replaceInFile('**NAMESPACEPREFIX**', $namespacePrefix, $symfonyRootDir . "/app/config/serializer.yml", $symfonyRootDir . "/app/config/serializer.yml");
         replaceInFile('**NAMESPACEPREFIX**', $namespacePrefix, __DIR__ . "/fos-bundles.yml", $symfonyRootDir . "/app/config/fos-bundles.yml");
         replaceInFile('**NAMESPACEPREFIX**', $namespacePrefix, __DIR__ . "/Entity.User.yml", $configSerializerDir . "/Entity.User.yml");
