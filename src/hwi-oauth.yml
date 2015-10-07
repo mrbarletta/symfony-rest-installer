@@ -32,8 +32,8 @@ hwi_oauth:
 
         google:
             type:                google
-            client_id:           **GOOGLECLIENTID**
-            client_secret:       **GOOGLECLIENTSECRET**
+            client_id:           '**GOOGLECLIENTID**'
+            client_secret:       '**GOOGLECLIENTSECRET**'
             scope:               "email"
 services:
     hwi_oauth.user.provider.entity:
