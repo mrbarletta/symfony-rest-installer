@@ -7,5 +7,5 @@ jms_serializer:
                 path: "%kernel.root_dir%/Resources/FOSUserBundle/serializer"
             **FULLBUNDLENAME**:
                 namespace_prefix: "**NAMESPACEPREFIX**"
-                path: "%kernel.root_dir%/../src/**VENDOR**/**BUNDLE**/Resources/config/serializer"
+                path: "%kernel.root_dir%/../src/**VENDOR**/**FULLBUNDLENAME**/Resources/config/serializer"
         auto_detection: true
