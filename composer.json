@@ -14,7 +14,7 @@
         "gfreeau/get-jwt-bundle": "~1.0",
         "friendsofsymfony/user-bundle": "dev-master",
         "lexik/jwt-authentication-bundle": "1.0.5",
-        "friendsofsymfony/rest-bundle": "~1.4",
+        "friendsofsymfony/rest-bundle": "dev-master",
         "hwi/oauth-bundle": "0.4.*@dev"
     }
 }
