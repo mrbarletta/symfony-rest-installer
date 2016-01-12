@@ -3,7 +3,7 @@ Automate Symfony Installation Packages for Rest+ support - JWT - JMS - HWIO - FO
 
 There are some instructions to get you all setup.
 
-# Bootstrap a Symfony >2.6 Rest Backend in minutes, instead of hours
+# Bootstrap a Symfony >2.6 <3.0 (currently not working with 3.0) Rest Backend in minutes, instead of hours
 ## What do you get with this module?
 
 * HWIO Auth for Facebook / Google / Twitter auth
